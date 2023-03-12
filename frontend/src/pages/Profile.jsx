@@ -9,10 +9,7 @@ export default function Profile() {
     const location = useRef();
     const yr = useRef();
     const username = useRef();
-    // const { user } = UserAuth()
-    const user = {
-        email:"mohdmehdi2003@gmail.com"
-    }
+    const { user } = UserAuth()
     function PostRequest() {
         fetch('http://localhost:3001/user/'
             , {

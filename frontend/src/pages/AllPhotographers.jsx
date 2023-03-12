@@ -1,12 +1,15 @@
 import React from 'react'
 import UsePhotographer from '../context/PhotographerContext'
 import Gallery from '../components/gallery'
+import { Navbar } from '../components/navbar'
+import { NavLink } from 'react-router-dom'
 
 export default function AllPhotographers() {
     const { filterpuser, updateFilterValue, filter: { location, tags }} = UsePhotographer()
     if (filterpuser)
         return (
             <>
+            <Navbar/>
                 <div>
                     <form onSubmit={(e) => e.preventDefault()}>
                         <input className=' rounded-lg text-black w-11/12 bg-gray-200 border-3 border-gray-300  m-4 p-2 text-lg' type="text" name="location" placeholder="Search for your tag !" onChange={updateFilterValue} />
@@ -29,7 +32,7 @@ export default function AllPhotographers() {
                                             <div class="card-body">
                                                 <h5 class="card-title">{each.username}</h5>
                                                 <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                                <NavLink to={`/userprofile/${each.email}`} class="btn btn-primary">View Profile</NavLink>
                                             </div>
                                         </div>
                                     </div>

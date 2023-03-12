@@ -12,7 +12,7 @@ export default function UserProfile() {
     const [data, setData] = useState()
     const [imagesData, setImagesData] = useState()
     const [userTags, setuserTags] = useState()
-    const {logout} = UserAuth()
+    const {user, logout} = UserAuth()
 
     function removeDuplicates(arr) {
         return arr.filter((item,
@@ -82,7 +82,12 @@ export default function UserProfile() {
                         )
                     })}
                 </div>
-                <button type="button" onClick={logout} class="my-4 ml-4 text-white bg-gradient-to-r from-gray-700 to-black hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-lg px-5 py-2.5 text-center mr-2 mb-2"><NavLink to='/' title='Signout' className="block width-10 py-2 pl-3 pr-4 text-white  rounded md:bg-transparent md:text-gray-200 md:p-0 hover:text-white" aria-current="page">Signout</NavLink></button>
+                {
+                    user.email === useremail?
+                    <button type="button" onClick={logout} class="my-4 ml-4 text-white bg-gradient-to-r from-gray-700 to-black hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-lg px-5 py-2.5 text-center mr-2 mb-2"><NavLink to='/' title='Signout' className="block width-10 py-2 pl-3 pr-4 text-white  rounded md:bg-transparent md:text-gray-200 md:p-0 hover:text-white" aria-current="page">Signout</NavLink></button>
+                    :
+                    null
+                }
             </div>
 
 
