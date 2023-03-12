@@ -5,11 +5,10 @@ import { Navbar } from '../components/navbar'
 import { NavLink } from 'react-router-dom'
 
 export default function AllPhotographers() {
-    const { filterpuser, updateFilterValue, filter: { location, tags }} = UsePhotographer()
+    const { filterpuser, updateFilterValue, filter: { location, tags } } = UsePhotographer()
     if (filterpuser)
         return (
             <>
-            <Navbar/>
                 <div>
                     <form onSubmit={(e) => e.preventDefault()}>
                         <input className=' rounded-lg text-black w-11/12 bg-gray-200 border-3 border-gray-300  m-4 p-2 text-lg' type="text" name="location" placeholder="Search for your tag !" onChange={updateFilterValue} />
